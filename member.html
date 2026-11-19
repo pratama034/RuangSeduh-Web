@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kala Seduh — Membership &amp; Riwayat Pesanan</title>
+  <meta name="description" content="Pantau progres membership, keuntungan tier, dan riwayat pesanan kopi Anda di Kala Seduh." />
+
+  <!-- Google Fonts: Poppins (400, 500, 600, 700, 800) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <!-- ================= STICKY NAVBAR (KONSISTEN) ================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner navbar__inner--member">
+      <!-- Logo -->
+      <a href="index.html" class="brand" aria-label="Kala Seduh Beranda">
+        <span class="brand__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8h1a4 4 0 0 1 0 8h-1" />
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+            <line x1="6" y1="2" x2="6" y2="4" />
+            <line x1="10" y1="2" x2="10" y2="4" />
+            <line x1="14" y1="2" x2="14" y2="4" />
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">Kala Seduh</span>
+          <span class="brand__tagline">Base Cafe Indonesia</span>
+        </span>
+      </a>
+
+      <!-- Navigasi Utama -->
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="index.html" class="nav-link">Menu</a>
+        <a href="member.html" class="nav-link is-active" aria-current="page">Member</a>
+      </nav>
+
+      <!-- Navbar Actions -->
+      <div class="navbar__actions">
+        <a href="member.html" class="nav-tier-pill" id="navTierBadge" title="Status tier membership aktif">
+          <span class="nav-tier-pill__dot" id="navTierDot"></span>
+          <span class="nav-tier-pill__label" id="navTierName">Bronze</span>
+        </a>
+
+        <button
+          type="button"
+          class="cart-trigger"
+          id="openCartBtn"
+          aria-label="Buka keranjang belanja"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span class="cart-trigger__text">Keranjang</span>
+          <span class="cart-trigger__count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT (HALAMAN MEMBER) ================= -->
+  <main id="top" class="main main--member">
+    <div class="container member-page">
+      <!-- Section 1: Kartu Member Virtual & Progres -->
+      <section class="member-section" aria-labelledby="memberPageHeading">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Kala Seduh Loyalty</p>
+            <h1 class="section-title section-title--lg" id="memberPageHeading">Kartu Member &amp; Progres</h1>
+            <p class="section-meta">Setiap transaksi otomatis terakumulasi untuk membuka potongan harga yang lebih besar.</p>
+          </div>
+          <a href="index.html" class="btn btn--ghost btn--sm">
+            &larr; Kembali ke Menu
+          </a>
+        </div>
+
+        <article class="member-card member-card--hero" id="memberCard" data-tier="Bronze">
+          <div class="member-card__accent" id="memberCardAccent"></div>
+
+          <div class="member-card__header">
+            <div class="member-card__identity">
+              <span class="member-card__label">Kala Seduh Member</span>
+              <h2 class="member-card__name">Sahabat Kala Seduh</h2>
+              <div class="member-card__tier-row">
+                <span class="tier-badge" id="memberTierBadge">Bronze</span>
+                <span class="member-card__discount" id="memberDiscountBadge">Diskon 0%</span>
+              </div>
+            </div>
+
+            <div class="member-card__spent">
+              <span class="member-card__label">Akumulasi Total Belanja</span>
+              <strong class="member-card__amount member-card__amount--lg" id="memberTotalSpent">Rp 0</strong>
+            </div>
+          </div>
+
+          <!-- Progress Bar Dinamis -->
+          <div class="member-progress">
+            <div class="member-progress__meta">
+              <span class="member-progress__text" id="memberProgressText">
+                Belanja Rp 100.001 lagi untuk naik ke Silver
+              </span>
+              <span class="member-progress__percent" id="memberProgressPercent">0%</span>
+            </div>
+            <div
+              class="member-progress__track"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              id="memberProgressTrack"
+            >
+              <div class="member-progress__fill" id="memberProgressFill" style="width: 0%;"></div>
+            </div>
+
+            <div class="tier-steps" id="tierSteps" aria-label="Tingkatan tier membership">
+              <span class="tier-step" data-step="Bronze">Bronze 0%</span>
+              <span class="tier-step" data-step="Silver">Silver 5%</span>
+              <span class="tier-step" data-step="Gold">Gold 10%</span>
+              <span class="tier-step" data-step="Platinum">Platinum 15%</span>
+            </div>
+          </div>
+
+          <div class="member-card__footer">
+            <span class="member-card__meta-note" id="memberOrdersMeta">0 transaksi tercatat</span>
+            <button
+              type="button"
+              class="btn btn--text-danger btn--xs"
+              id="resetProgressBtn"
+              title="Reset data membership & riwayat untuk demo presentasi"
+            >
+              Reset Progress (Demo)
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- Section 2: Daftar Tier & Benefit -->
+      <section class="member-section" aria-labelledby="tiersHeading">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title" id="tiersHeading">Tingkatan Tier &amp; Benefit</h2>
+            <p class="section-meta">Diskon otomatis diterapkan pada setiap checkout sesuai tier yang Anda capai.</p>
+          </div>
+        </div>
+
+        <div class="tier-grid" id="tierBenefitsGrid">
+          <!-- Dirender dinamis dari TIERS di js/member-page.js -->
+        </div>
+      </section>
+
+      <!-- Section 3: Riwayat Pesanan Langsung di Halaman -->
+      <section class="member-section" aria-labelledby="historyHeading">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title" id="historyHeading">Riwayat Pesanan</h2>
+            <p class="section-meta" id="historySectionMeta">Catatan seluruh transaksi kopi Anda yang tersimpan di browser ini.</p>
+          </div>
+        </div>
+
+        <div class="history-board" id="orderHistoryContainer" aria-live="polite">
+          <!-- Dirender dinamis oleh js/member-page.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__brand">Kala Seduh &mdash; Base Cafe Indonesia</p>
+      <p class="footer__note">Diseduh hangat dengan kopi pilihan Nusantara. Data pesanan tersimpan lokal di browser Anda.</p>
+    </div>
+  </footer>
+
+  <!-- ================= SLIDE-OVER CART DRAWER ================= -->
+  <div class="backdrop hidden" id="cartBackdrop" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Keranjang Belanja" aria-hidden="true">
+    <div class="cart-drawer__header">
+      <div>
+        <h2 class="cart-drawer__title">Keranjang Pesanan</h2>
+        <p class="cart-drawer__subtitle" id="cartItemSummary">0 item dipilih</p>
+      </div>
+      <button type="button" class="icon-btn" id="closeCartBtn" aria-label="Tutup keranjang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer__body" id="cartItemsContainer"></div>
+
+    <div class="cart-drawer__footer" id="cartFooter">
+      <div class="cart-levelup-hint hidden" id="cartLevelUpHint"></div>
+
+      <div class="summary-rows">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">Rp 0</span>
+        </div>
+        <div class="summary-row summary-row--discount">
+          <span id="cartDiscountLabel">Diskon Member (0%)</span>
+          <span id="cartDiscountAmount">- Rp 0</span>
+        </div>
+        <div class="summary-row summary-row--total">
+          <span>Total Bayar</span>
+          <strong id="cartTotal">Rp 0</strong>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn--primary btn--block" id="checkoutBtn" disabled>
+        Pesan Sekarang
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= MODAL STRUK PESANAN ================= -->
+  <div class="modal-overlay hidden" id="receiptModal" role="dialog" aria-modal="true" aria-labelledby="receiptModalTitle">
+    <div class="modal-card modal-card--receipt">
+      <button type="button" class="icon-btn modal-close" data-close-modal="receiptModal" aria-label="Tutup struk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <!-- Banner Level Up -->
+      <div class="levelup-banner hidden" id="levelUpBanner" aria-live="assertive">
+        <div class="levelup-banner__sparkles" aria-hidden="true">✨</div>
+        <p class="levelup-banner__eyebrow">LEVEL UP!</p>
+        <h3 class="levelup-banner__title" id="levelUpTitle">Selamat Naik ke Silver!</h3>
+        <p class="levelup-banner__desc" id="levelUpDesc">
+          Mulai pesanan berikutnya, Anda otomatis menikmati diskon 5%.
+        </p>
+      </div>
+
+      <div class="receipt-header">
+        <div class="receipt-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <h2 class="modal-title" id="receiptModalTitle">Detail Struk Pesanan</h2>
+        <p class="receipt-meta" id="receiptMeta">No. Pesanan &bull; Tanggal</p>
+      </div>
+
+      <div class="receipt-body">
+        <ul class="receipt-items" id="receiptItemsList"></ul>
+
+        <div class="receipt-divider"></div>
+
+        <div class="summary-rows">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="receiptSubtotal">Rp 0</span>
+          </div>
+          <div class="summary-row summary-row--discount">
+            <span id="receiptDiscountLabel">Diskon Member</span>
+            <span id="receiptDiscountAmount">- Rp 0</span>
+          </div>
+          <div class="summary-row summary-row--total">
+            <span>Total Dibayar</span>
+            <strong id="receiptTotal">Rp 0</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn--primary btn--block" data-close-modal="receiptModal">
+          Tutup Struk
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL KONFIRMASI RESET DEMO ================= -->
+  <div class="modal-overlay hidden" id="resetModal" role="dialog" aria-modal="true" aria-labelledby="resetModalTitle">
+    <div class="modal-card modal-card--compact">
+      <h2 class="modal-title" id="resetModalTitle">Reset Progress Demo?</h2>
+      <p class="modal-text">
+        Tindakan ini akan mengembalikan total belanja ke <strong>Rp 0</strong>, tier ke <strong>Bronze</strong>, serta mengosongkan keranjang dan riwayat pesanan di browser ini.
+      </p>
+      <div class="modal-actions modal-actions--row">
+        <button type="button" class="btn btn--ghost" data-close-modal="resetModal">Batal</button>
+        <button type="button" class="btn btn--danger" id="confirmResetBtn">Ya, Reset Semua</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATIONS ================= -->
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Entry Point Halaman Membership -->
+  <script type="module" src="./js/member-page.js"></script>
+</body>
+</html>

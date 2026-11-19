@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kala Seduh — Menu Kopi Nusantara</title>
+  <meta name="description" content="Pemesanan kopi artisan khas Nusantara dari Kala Seduh, Base Cafe Indonesia." />
+
+  <!-- Google Fonts: Poppins (400, 500, 600, 700, 800) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <!-- ================= STICKY NAVBAR ================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <!-- Logo -->
+      <a href="index.html" class="brand" aria-label="Kala Seduh Beranda">
+        <span class="brand__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8h1a4 4 0 0 1 0 8h-1" />
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+            <line x1="6" y1="2" x2="6" y2="4" />
+            <line x1="10" y1="2" x2="10" y2="4" />
+            <line x1="14" y1="2" x2="14" y2="4" />
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">Kala Seduh</span>
+          <span class="brand__tagline">Base Cafe Indonesia</span>
+        </span>
+      </a>
+
+      <!-- Navigasi Utama -->
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="index.html" class="nav-link is-active" aria-current="page">Menu</a>
+        <a href="member.html" class="nav-link">Member</a>
+      </nav>
+
+      <!-- Live Search -->
+      <div class="search-box" role="search">
+        <span class="search-box__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </span>
+        <input
+          type="search"
+          id="searchInput"
+          class="search-box__input"
+          placeholder="Cari nama kopi atau asal daerah..."
+          autocomplete="off"
+          aria-label="Cari menu kopi"
+        />
+        <button
+          type="button"
+          id="clearSearchBtn"
+          class="search-box__clear hidden"
+          aria-label="Hapus pencarian"
+          title="Hapus pencarian"
+        >
+          &times;
+        </button>
+      </div>
+
+      <!-- Navbar Actions -->
+      <div class="navbar__actions">
+        <a href="member.html" class="nav-tier-pill" id="navTierBadge" title="Buka halaman membership">
+          <span class="nav-tier-pill__dot" id="navTierDot"></span>
+          <span class="nav-tier-pill__label" id="navTierName">Bronze</span>
+        </a>
+
+        <button
+          type="button"
+          class="cart-trigger"
+          id="openCartBtn"
+          aria-label="Buka keranjang belanja"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span class="cart-trigger__text">Keranjang</span>
+          <span class="cart-trigger__count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT (KATALOG MENU) ================= -->
+  <main id="top" class="main main--catalog">
+    <div class="container">
+      <!-- Strip Info Member Ringkas -->
+      <div class="member-strip" id="memberStrip" data-tier="Bronze">
+        <div class="member-strip__left">
+          <span class="member-strip__dot" id="stripTierDot"></span>
+          <span class="member-strip__text">
+            Tier aktif Anda: <strong id="stripTierName">Bronze</strong>
+            <span class="member-strip__sep">&bull;</span>
+            <span class="member-strip__discount" id="stripDiscountText">Diskon otomatis 0%</span>
+          </span>
+        </div>
+        <a href="member.html" class="member-strip__link">
+          Lihat Progres Member &rarr;
+        </a>
+      </div>
+
+      <!-- Filter Bar & Menu Grid -->
+      <section class="menu-section" aria-labelledby="menuHeading">
+        <div class="menu-header">
+          <div>
+            <p class="eyebrow">Seduhan Nusantara Terkurasi</p>
+            <h1 class="section-title section-title--lg" id="menuHeading">Daftar Seduhan</h1>
+            <p class="section-meta" id="menuResultMeta">Memuat daftar menu...</p>
+          </div>
+
+          <div class="filter-bar" id="filterBar" role="tablist" aria-label="Filter kategori dan suhu kopi">
+            <button type="button" class="filter-pill is-active" data-filter="Semua" role="tab" aria-selected="true">Semua</button>
+            <button type="button" class="filter-pill" data-filter="Signature" role="tab" aria-selected="false">Signature</button>
+            <button type="button" class="filter-pill" data-filter="Single Origin" role="tab" aria-selected="false">Single Origin</button>
+            <button type="button" class="filter-pill" data-filter="Non-Coffee" role="tab" aria-selected="false">Non-Coffee</button>
+            <button type="button" class="filter-pill" data-filter="Hot" role="tab" aria-selected="false">Hot</button>
+            <button type="button" class="filter-pill" data-filter="Iced" role="tab" aria-selected="false">Iced</button>
+          </div>
+        </div>
+
+        <!-- Menu Grid Container (Skeleton / Cards / Empty / Error) -->
+        <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__brand">Kala Seduh &mdash; Base Cafe Indonesia</p>
+      <p class="footer__note">Diseduh hangat dengan kopi pilihan Nusantara. Data pesanan tersimpan lokal di browser Anda.</p>
+    </div>
+  </footer>
+
+  <!-- ================= SLIDE-OVER CART DRAWER ================= -->
+  <div class="backdrop hidden" id="cartBackdrop" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Keranjang Belanja" aria-hidden="true">
+    <div class="cart-drawer__header">
+      <div>
+        <h2 class="cart-drawer__title">Keranjang Pesanan</h2>
+        <p class="cart-drawer__subtitle" id="cartItemSummary">0 item dipilih</p>
+      </div>
+      <button type="button" class="icon-btn" id="closeCartBtn" aria-label="Tutup keranjang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer__body" id="cartItemsContainer"></div>
+
+    <div class="cart-drawer__footer" id="cartFooter">
+      <div class="cart-levelup-hint hidden" id="cartLevelUpHint"></div>
+
+      <div class="summary-rows">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">Rp 0</span>
+        </div>
+        <div class="summary-row summary-row--discount">
+          <span id="cartDiscountLabel">Diskon Member (0%)</span>
+          <span id="cartDiscountAmount">- Rp 0</span>
+        </div>
+        <div class="summary-row summary-row--total">
+          <span>Total Bayar</span>
+          <strong id="cartTotal">Rp 0</strong>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn--primary btn--block" id="checkoutBtn" disabled>
+        Pesan Sekarang
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= MODAL STRUK PESANAN ================= -->
+  <div class="modal-overlay hidden" id="receiptModal" role="dialog" aria-modal="true" aria-labelledby="receiptModalTitle">
+    <div class="modal-card modal-card--receipt">
+      <button type="button" class="icon-btn modal-close" data-close-modal="receiptModal" aria-label="Tutup struk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <!-- Banner Level Up -->
+      <div class="levelup-banner hidden" id="levelUpBanner" aria-live="assertive">
+        <div class="levelup-banner__sparkles" aria-hidden="true">✨</div>
+        <p class="levelup-banner__eyebrow">LEVEL UP!</p>
+        <h3 class="levelup-banner__title" id="levelUpTitle">Selamat Naik ke Silver!</h3>
+        <p class="levelup-banner__desc" id="levelUpDesc">
+          Mulai pesanan berikutnya, Anda otomatis menikmati diskon 5%.
+        </p>
+      </div>
+
+      <div class="receipt-header">
+        <div class="receipt-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <h2 class="modal-title" id="receiptModalTitle">Pesanan Diterima</h2>
+        <p class="receipt-meta" id="receiptMeta">No. Pesanan &bull; Tanggal</p>
+      </div>
+
+      <div class="receipt-body">
+        <ul class="receipt-items" id="receiptItemsList"></ul>
+
+        <div class="receipt-divider"></div>
+
+        <div class="summary-rows">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="receiptSubtotal">Rp 0</span>
+          </div>
+          <div class="summary-row summary-row--discount">
+            <span id="receiptDiscountLabel">Diskon Member</span>
+            <span id="receiptDiscountAmount">- Rp 0</span>
+          </div>
+          <div class="summary-row summary-row--total">
+            <span>Total Dibayar</span>
+            <strong id="receiptTotal">Rp 0</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions modal-actions--stack">
+        <button type="button" class="btn btn--primary btn--block" data-close-modal="receiptModal">
+          Selesai &amp; Kembali ke Menu
+        </button>
+        <a href="member.html" class="btn btn--ghost btn--block btn--sm">
+          Lihat Progres &amp; Riwayat Member &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATIONS ================= -->
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Entry Point Halaman Katalog Menu -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "kala-seduh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi web frontend pemesanan kopi modern Kala Seduh — Base Cafe Indonesia",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}

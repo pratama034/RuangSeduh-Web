@@ -1,0 +1,122 @@
+[
+  {
+    "id": "ks-01",
+    "name": "Es Kopi Susu Gula Aren",
+    "origin": "Blend Jawa Barat",
+    "category": "Signature",
+    "type": "Iced",
+    "price": 28000,
+    "description": "Espresso house blend dipadukan susu segar creamy dan sirup gula aren organik asli Cianjur.",
+    "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-02",
+    "name": "Manual Brew V60 Kintamani",
+    "origin": "Kintamani, Bali",
+    "category": "Single Origin",
+    "type": "Hot",
+    "price": 35000,
+    "description": "Seduhan pour-over bersih dengan aroma citrus jeruk Bali, floral lembut, dan aftertaste manis.",
+    "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-03",
+    "name": "Toraja Sapan Latte",
+    "origin": "Toraja Utara, Sulawesi",
+    "category": "Signature",
+    "type": "Hot",
+    "price": 34000,
+    "description": "Single origin Toraja Sapan dengan karakter dark chocolate dan rempah hangat berpadu microfoam lembut.",
+    "image": "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-04",
+    "name": "Kopi Tubruk Gayo",
+    "origin": "Takengon, Aceh Gayo",
+    "category": "Single Origin",
+    "type": "Hot",
+    "price": 24000,
+    "description": "Kopi tubruk klasik Nusantara dari biji Arabika Gayo sangrai medium-dark, beraroma earthy dan berkarakter tebal.",
+    "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-05",
+    "name": "Espresso Tonic Flores",
+    "origin": "Bajawa, Flores NTT",
+    "category": "Signature",
+    "type": "Iced",
+    "price": 36000,
+    "description": "Double shot espresso Bajawa di atas air tonik dingin dengan sentuhan irisan jeruk sunkist yang menyegarkan.",
+    "image": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-06",
+    "name": "Aren Oat Latte",
+    "origin": "Ciwidey, Jawa Barat",
+    "category": "Signature",
+    "type": "Iced",
+    "price": 38000,
+    "description": "Alternatif nabati creamy menggunakan susu oat pilihan, espresso halus Ciwidey, dan manis lembut gula aren.",
+    "image": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-07",
+    "name": "Cold Brew Aceh Gayo",
+    "origin": "Dataran Tinggi Gayo, Aceh",
+    "category": "Single Origin",
+    "type": "Iced",
+    "price": 32000,
+    "description": "Diekstraksi dingin selama 16 jam menghasilkan kopi rendah keasaman dengan nuansa karamel dan kakao.",
+    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-08",
+    "name": "Matcha Nusantara",
+    "origin": "Pangalengan, Jawa Barat",
+    "category": "Non-Coffee",
+    "type": "Iced",
+    "price": 34000,
+    "description": "Bubuk teh hijau ceremonial pilihan dikocok lembut bersama susu segar dingin dan sedikit madu hutan.",
+    "image": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-09",
+    "name": "Japanese Iced V60 Wamena",
+    "origin": "Lembah Baliem, Papua",
+    "category": "Single Origin",
+    "type": "Iced",
+    "price": 38000,
+    "description": "Seduhan pour-over langsung di atas es batu menjaga aroma melati dan manis buah tropis khas Wamena.",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-10",
+    "name": "Pandan Cream Cold Brew",
+    "origin": "Temanggung, Jawa Tengah",
+    "category": "Signature",
+    "type": "Iced",
+    "price": 36000,
+    "description": "Cold brew aromatik Temanggung berlapiskan krim pandan wangi yang lembut dan seimbang.",
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-11",
+    "name": "Cokelat Rempah Bali",
+    "origin": "Jembrana, Bali",
+    "category": "Non-Coffee",
+    "type": "Hot",
+    "price": 32000,
+    "description": "Dark chocolate 70% asal Jembrana diseduh hangat dengan sentuhan kayu manis dan pala Nusantara.",
+    "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "ks-12",
+    "name": "Wedang Jahe Latte",
+    "origin": "Solo, Jawa Tengah",
+    "category": "Non-Coffee",
+    "type": "Hot",
+    "price": 29000,
+    "description": "Infusi jahe emprit bakar, serai, dan gula merah dipadukan susu steam hangat yang menenangkan.",
+    "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80"
+  }
+]
